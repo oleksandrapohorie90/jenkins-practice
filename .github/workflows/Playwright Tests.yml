@@ -1,4 +1,4 @@
-nname: Playwright Tests
+name: Playwright Tests
 
 on:
   push: # Auto-trigger the workflow on push to main or master branches
