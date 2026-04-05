@@ -1,4 +1,4 @@
-name: Playwright Tests
+nname: Playwright Tests
 
 on:
   push: # Auto-trigger the workflow on push to main or master branches
@@ -36,6 +36,13 @@ jobs:
     # installs the Playwright browsers (chromium, firefox, webkit) for testing. Note: Replace 'chromium' with the browser you want to test.
     - name: Install Playwright Chromium
       run: npx playwright install --with-deps chromium
+
+    # configures the environment variables for the tests
+    - name: configure environment variables
+      run: |
+        echo "PRACTICE_USERNAME=${{ secrets.PRACTICE_USERNAME }}" >> $GITHUB_ENV
+        echo "PRACTICE_PASSWORD=${{ secrets.PRACTICE_PASSWORD }}" >> $GITHUB_ENV
+       
 
     # runs the tests in headless mode (without a GUI)
     - name: Run Playwright tests
